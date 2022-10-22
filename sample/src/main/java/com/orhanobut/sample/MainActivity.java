@@ -10,6 +10,7 @@ import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +48,8 @@ public class MainActivity extends Activity {
       }
     });
 
-    Logger.addLogAdapter(new DiskLogAdapter());
+    String folder = getApplicationContext().getExternalFilesDir("logs") + File.separator;
+    Logger.addLogAdapter(new DiskLogAdapter(folder));
 
 
     Logger.w("no thread info and only 1 method");

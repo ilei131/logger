@@ -13,8 +13,8 @@ public class DiskLogAdapter implements LogAdapter {
 
   @NonNull private final FormatStrategy formatStrategy;
 
-  public DiskLogAdapter() {
-    formatStrategy = CsvFormatStrategy.newBuilder().build();
+  public DiskLogAdapter(String folder) {
+    formatStrategy = CsvFormatStrategy.newBuilder(folder).build();
   }
 
   public DiskLogAdapter(@NonNull FormatStrategy formatStrategy) {

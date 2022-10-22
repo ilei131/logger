@@ -82,12 +82,14 @@ Logger.addLogAdapter(new AndroidLogAdapter() {
 ### Save logs to the file
 //TODO: More information will be added later
 ```java
-Logger.addLogAdapter(new DiskLogAdapter());
+String folder = context.getExternalFilesDir("logs") + File.separator;
+Logger.addLogAdapter(new DiskLogAdapter(folder));
 ```
 
 Add custom tag to Csv format strategy
 ```java
-FormatStrategy formatStrategy = CsvFormatStrategy.newBuilder()
+String folder = context.getExternalFilesDir("logs") + File.separator;
+FormatStrategy formatStrategy = CsvFormatStrategy.newBuilder(folder)
   .tag("custom")
   .build();
   
